@@ -88,7 +88,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Custamer{" + "id=" + id + ", name=" + name + ", money=" + money + '}';
+        return  name + ", у него в кошельке " + money +" центов";
     }
     
     

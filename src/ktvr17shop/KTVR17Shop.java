@@ -19,6 +19,8 @@ public class KTVR17Shop {
 
     public static void main(String[] args) {
         System.out.println("Hello");
+        App app = new App();
+        app.run();
 
         Product product1 = new Product(1L, "Moloko", 100, 30);
         Product product2 = new Product(2L, "Kolbasa", 300, 20);
@@ -53,7 +55,7 @@ public class KTVR17Shop {
         System.out.println(purchase1.toString());
         System.out.println(purchase2.toString());
         System.out.println(purchase3.toString());
-        
+         
 
     }
 
