@@ -6,11 +6,13 @@
 package entity;
 
 import java.util.Objects;
+import javax.persistence.Entity;
 
 /**
  *
  * @author pupil
  */
+@Entity
 public class Product {
     private long id;
     private String name;
