@@ -11,6 +11,7 @@ import classesCreator.PurchaseCreator;
 import entity.Customer;
 import entity.Product;
 import entity.Purchase;
+import interfaces.Manageable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -25,6 +26,7 @@ public class App {
    private List<Product> productes=new ArrayList<>();
    private List<Customer> customers=new ArrayList<>();
    private List<Purchase>purchases=new ArrayList<>();
+   private Manageable manager =new ConsoleInterface();
    
    public void run(){
        String repeat="r";
@@ -44,16 +46,16 @@ public class App {
                     repeat="q";
                     break;
                 case 1:
-                    ProductCreator productCreator =new ProductCreator();
-                    productes.add(productCreator.importProduct());
+                  
+                    productes.add(manager.importProduct());
                     break;
                 case 2:
-                    CustomerCreator customerCreator=new CustomerCreator();
-                    customers.add(customerCreator.newCustomer());
+                   
+                    customers.add(manager.newCustomer());
                     break;
                 case 3:
-                    PurchaseCreator purchaseCreator=new PurchaseCreator();
-                    purchases.add(purchaseCreator.add(productes, customers));
+                   
+                    purchases.add(manager.add(productes, customers));
                 default:
                     System.out.println("Выберите одно из действий!Enter! ");
             
