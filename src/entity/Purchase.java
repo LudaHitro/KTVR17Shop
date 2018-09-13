@@ -7,14 +7,24 @@ package entity;
 
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-/**
- *
- * @author pupil
- */
+@Entity
 public class Purchase {//history
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @OneToOne
     private Product product;
+    @OneToOne
     private Customer customer;
+    @Temporal(TemporalType.TIME)
     private Date datebegin ;
     private int quantity;// count
 
@@ -27,7 +37,13 @@ public class Purchase {//history
         this.datebegin = datebegin;
         this.quantity = quantity;
     }
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
     public void setProduct(Product product) {
         this.product = product;
     }
@@ -99,8 +115,10 @@ public class Purchase {//history
 
     @Override
     public String toString() {
-        return "Статус: " + product + ". Купил " + customer + ", "+ ",количество " + quantity + ", " + datebegin ;
+        return "Статус: "+ id + product + ". Купил " + customer + ", "+ ",количество " + quantity + ", " + datebegin ;
     }
+
+
     
     
     
