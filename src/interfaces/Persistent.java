@@ -16,8 +16,8 @@ import java.util.List;
  */
 public interface Persistent {
     public void saveProductes(List<Product>productes);
-    public void saveCustomer(List<Customer> customers);
-    public void savePurchase(List<Purchase> purchases);
+    public void saveCustomers(List<Customer> customers);
+    public void savePurchases(List<Purchase> purchases);
     
     public List<Product>loadProductes();
     public List<Customer>loadCustomers();

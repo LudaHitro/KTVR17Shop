@@ -17,6 +17,13 @@ import java.util.GregorianCalendar;
  */
 public class KTVR17Shop {
 
+    /**
+     *
+     */
+    public static String PRODUCTES_SAVE="saveProductes";
+    public static String CUSTOMERS_SAVE="saveCustomers";
+    public static String PURCHASES_SAVE="savePurchases";
+
     public static void main(String[] args) {
         System.out.println("Hello");
         App app = new App();
