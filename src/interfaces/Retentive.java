@@ -14,13 +14,16 @@ import java.util.List;
  *
  * @author pupil
  */
-public interface Persistent {
-    public void saveProductes(List<Product>productes);
-    public void saveCustomer(List<Customer> customers);
-    public void savePurchase(List<Purchase> purchases);
+public interface Retentive {
+    public void saveProduct(Product product);
+    public void saveCustomer(Customer customer);
+    public void savePurchase(Purchase purchase, boolean update);
     
     public List<Product>loadProductes();
     public List<Customer>loadCustomers();
     public List<Purchase>loadPurchases();
+    public  void freeResources();
+    
+    
     
 }

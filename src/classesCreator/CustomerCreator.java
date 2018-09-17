@@ -26,9 +26,17 @@ public class CustomerCreator {
      
      System.out.println("Введите money");
      customer.setMoney(scanner.nextInt());
-         
      
-     return customer;
+      System.out.println("Dlja dobavlenia producta vvedite luboi simvol\ndlja ne dobavljat vvedite -1");
+     String yes;
+        yes=scanner.next();
+        if ("-1".equals(yes)){
+            System.out.println("Product ne dobavlen");
+            return null;
+        }else{ 
+            System.out.println("Dobavleno!");
+            return customer;
+        }
  }
     
     

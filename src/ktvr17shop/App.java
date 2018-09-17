@@ -11,7 +11,9 @@ import classesCreator.PurchaseCreator;
 import entity.Customer;
 import entity.Product;
 import entity.Purchase;
+import static entity.Purchase_.product;
 import interfaces.Manageable;
+import interfaces.Retentive;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -27,6 +29,15 @@ public class App {
    private List<Customer> customers=new ArrayList<>();
    private List<Purchase>purchases=new ArrayList<>();
    private Manageable manager =new ConsoleInterface();
+   
+   private Retentive saver=new PersistToBase();
+
+    public App() {
+        this.productes=saver.loadProductes();
+        this.customers=saver.loadCustomers();
+        this.purchases=saver.loadPurchases();
+    }
+   
    
    public void run(){
        String repeat="r";
@@ -46,16 +57,28 @@ public class App {
                     repeat="q";
                     break;
                 case 1:
-                  
-                    productes.add(manager.importProduct());
+                    Product product=manager.importProduct();
+                    //productes.add(manager.importProduct());
+                    if(product!=null){
+                    productes.add(product);
+                    saver.saveProduct(product);
+                    }
                     break;
                 case 2:
-                   
-                    customers.add(manager.newCustomer());
+                   Customer customer=manager.newCustomer();
+                   if(customer!=null){
+                    //customers.add(manager.newCustomer());
+                   customers.add(customer);
+                   saver.saveCustomer(customer);
+                   }
                     break;
                 case 3:
-                   
-                    purchases.add(manager.add(productes, customers));
+                   Purchase purchase=manager.add(productes, customers);
+                    //purchases.add(manager.add(productes, customers));
+                    if (purchase!=null) {                    
+                    purchases.add(purchase);
+                    saver.savePurchase(purchase, true);
+                    }
                 default:
                     System.out.println("Выберите одно из действий!Enter! ");
             

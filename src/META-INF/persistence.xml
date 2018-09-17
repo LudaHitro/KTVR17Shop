@@ -3,6 +3,9 @@
   <persistence-unit name="KTVRShop17PU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entity.NewEntity</class>
+    <class>entity.Customer</class>
+    <class>entity.Product</class>
+    <class>entity.Purchase</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ktvrshop17?zeroDateTimeBehavior=convertToNull&amp;characterEncoding=utf8&amp;useUnicode=true"/>
       <property name="javax.persistence.jdbc.user" value="ktvrshop17"/>

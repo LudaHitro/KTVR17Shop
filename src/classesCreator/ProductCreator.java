@@ -21,6 +21,7 @@ public class ProductCreator {
         
         System.out.println("--------Введи код продукта -------------");
         product.setId(scanner.nextLong());
+        
         System.out.println("-----------------Введи наименование продукта-----------------");
         product.setName(scanner.next());
         
@@ -29,11 +30,17 @@ public class ProductCreator {
         
         System.out.println("-----------------------------  Введи всего продуктов -------------------");
         product.setCount(scanner.nextInt());
-        return product;
         
-        
-        
-        
+        System.out.println("Dlja dobavlenia producta vvedite luboi simvol\ndlja ne dobavljat vvedite -1");
+        String yes;
+        yes=scanner.next();
+        if ("-1".equals(yes)){
+            System.out.println("Product ne dobavlen");
+            return null;
+        }else{ 
+            System.out.println("Dobavleno!");
+            return product;
+        }
     }
     
 }

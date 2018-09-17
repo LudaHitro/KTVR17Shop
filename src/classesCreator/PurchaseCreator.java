@@ -53,21 +53,37 @@ public class PurchaseCreator {//(Product product, Customer customer, int quantit
         
         System.out.println("------------Список покупок------");
         
-        Purchase pur=new Purchase();
-        pur.setProduct(productes.get(new Integer(codProduct)-1));
-        pur.setCustomer(customers.get(new Integer(codCustomer)-1));
-       // pur.setQuantity(quantity.get());
+       System.out.println("------------Список покупок------");
+        
+        Purchase purchase=new Purchase();
+        Product product = new Product();
+        product = productes.get(new Integer(codProduct)-1);
+        purchase.setProduct(product);
+        Customer customer=new Customer();
+        customer=customers.get(new Integer(codCustomer)-1);
+        purchase.setCustomer(customer);
+        purchase.setQuantity(new Integer(quantity));
         Calendar c = new GregorianCalendar();
-        pur.setDatebegin(c.getTime());
-        System.out.println("Выдано: "+ pur.toString());
+        purchase.setDatebegin(c.getTime());
+        //customer1.setMoney(customer1.getMoney()-purchase1.getProduct().getPrice()*purchase1.getQuantity());
+        purchase.getCustomer().setMoney(purchase.getCustomer().getMoney()-purchase.getProduct().getPrice()*purchase.getQuantity());
+        purchase.getProduct().setCount(purchase.getProduct().getCount()-purchase.getQuantity());
+        
+        // product1.setCount(product1.getCount()-purchase1.getQuantity());
+        System.out.println("Выдано: "+ purchase.toString());
         System.out.println("________________________________________________________________________________" +"\n" );
          
+         System.out.println("Dlja dobavlenia producta vvedite luboi simvol\ndlja ne dobavljat vvedite -1");
         
-        
-        
-        
-        
-        return pur;
+         String yes;
+        yes=scanner.next();
+        if ("-1".equals(yes)){
+            System.out.println("Product ne dobavlen");
+            return null;
+        }else{ 
+            System.out.println("Dobavleno!");
+            return purchase;
+        }
     }
 
 }
