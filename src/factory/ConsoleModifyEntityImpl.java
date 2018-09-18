@@ -8,11 +8,14 @@ package factory;
 import entity.Customer;
 import entity.Product;
 import entity.Purchase;
+import static entity.Purchase_.datebegin;
 import interfaces.ModifyEntity;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -84,8 +87,19 @@ public class ConsoleModifyEntityImpl implements ModifyEntity{
     }
 
     @Override
-    public Purchase addPurcase() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Purchase addPurchase(Product product, Customer customer) {
+    Purchase purchase=new Purchase();
+    purchase.setId(Long.MIN_VALUE);//????
+    purchase.setProduct(product);
+    purchase.setCustomer(customer);
+    //purchase.setQuantity(Integer);
+    Calendar c = new GregorianCalendar();
+    purchase.setDatebegin(c.getTime());
+    
+    return purchase;
     }
+
+   
+        
     
 }

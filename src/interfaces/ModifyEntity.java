@@ -16,6 +16,6 @@ import entity.Purchase;
 public interface ModifyEntity {
     public Product addProduct();
     public Customer addCustomer();
-    public Purchase addPurcase();
+    public Purchase addPurchase();
     
 }
