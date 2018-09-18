@@ -23,12 +23,12 @@ import javax.persistence.Persistence;
 public class PersistToBase implements Retentive {
 
    
-    private final EntityManager em;
-    private final EntityTransaction tx;
+    private final EntityManager em;//em - entity manager= zapisano v BD, sohranenie v BD
+    private final EntityTransaction tx;//trnsaction=zastsita peredaci dannih
 
     public PersistToBase() { 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("KTVRShop17PU");
-        this.em = emf.createEntityManager();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("KTVRShop17PU");//PU persiste unit
+        this.em = emf.createEntityManager();//emf-fabrika
         this.tx = em.getTransaction();
     }
     
@@ -71,7 +71,7 @@ public class PersistToBase implements Retentive {
     @Override
     public List<Product> loadProductes() {
         try {
-            return em.createQuery("SELECT p FROM Product p").getResultList();
+            return em.createQuery("SELECT p FROM Product p").getResultList();//ispolzuem entity, a ne nazvania tablici
         } catch (Exception e) {
             return new ArrayList<Product>();
         }

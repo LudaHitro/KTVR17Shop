@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author pupil
  */
-public interface Retentive {
+public interface Retentive {//Persistense
     public void saveProduct(Product product);
     public void saveCustomer(Customer customer);
     public void savePurchase(Purchase purchase, boolean update);
