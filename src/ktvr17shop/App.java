@@ -5,13 +5,9 @@
  */
 package ktvr17shop;
 
-import classesCreator.CustomerCreator;
-import classesCreator.ProductCreator;
-import classesCreator.PurchaseCreator;
 import entity.Customer;
 import entity.Product;
 import entity.Purchase;
-import static entity.Purchase_.product;
 import interfaces.Manageable;
 import interfaces.Retentive;
 import java.util.ArrayList;
