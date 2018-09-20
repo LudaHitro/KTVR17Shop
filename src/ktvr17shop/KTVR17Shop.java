@@ -28,8 +28,6 @@ public class KTVR17Shop {
         System.out.println("Hello");
         App app = new App();
         app.run();
-        
-        
 /**
         Product product1 = new Product(1L, "Moloko", 100, 30);
         Product product2 = new Product(2L, "Kolbasa", 300, 20);

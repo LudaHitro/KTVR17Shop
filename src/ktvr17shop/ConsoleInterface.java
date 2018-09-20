@@ -18,7 +18,9 @@ import java.util.List;
  *
  * @author pupil
  */
-public class ConsoleInterface implements Manageable {
+public class ConsoleInterface implements Manageable {//реализованы методы, объявленные
+//в интерфейсе. Причем реализация этих методов нами уже написана в классе App
+
 
     @Override
     public Product importProduct() {

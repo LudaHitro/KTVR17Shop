@@ -11,26 +11,19 @@ import entity.Purchase;
 import java.util.List;
 
 /**
- *
- * @author pupil
+ *сохранять и считывать в приложение сохраненные раннее данные.
+ * @author Hitro
  */
-<<<<<<< HEAD:src/interfaces/Retentive.java
-public interface Retentive {//Persistense
+
+    
+    public interface Retentive {//Persistense
     public void saveProduct(Product product);
     public void saveCustomer(Customer customer);
     public void savePurchase(Purchase purchase, boolean update);
-=======
-public interface Persistent {
-    public void saveProductes(List<Product>productes);
-    public void saveCustomers(List<Customer> customers);
-    public void savePurchases(List<Purchase> purchases);
->>>>>>> ceba0b36cdd54e040008555991ee455f765db337:src/interfaces/Persistent.java
     
     public List<Product>loadProductes();
     public List<Customer>loadCustomers();
     public List<Purchase>loadPurchases();
     public  void freeResources();
-    
-    
     
 }

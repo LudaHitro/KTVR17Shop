@@ -115,7 +115,7 @@ public class Purchase {//history
 
     @Override
     public String toString() {
-        return "Статус: "+ id + product + ". Купил " + customer + ", "+ ",количество " + quantity + ", " + datebegin ;
+        return "Статус:  Купил "  + customer +  " в количествe "+ quantity + " "+  product + ", " + datebegin ;
     }
 
 

@@ -26,18 +26,20 @@ public class CustomerCreator {
      
      System.out.println("Введите money");
      customer.setMoney(scanner.nextInt());
-     
-      System.out.println("Dlja dobavlenia producta vvedite luboi simvol\ndlja ne dobavljat vvedite -1");
-     String yes;
+         
+    System.out.println("________________________________________________________________________________" +"\n" );
+         
+         System.out.println("Dlja dobavlenia pokupatela vvedite luboi simvol\ndlja ne dobavljat vvedite -1");
+        
+         String yes;
         yes=scanner.next();
         if ("-1".equals(yes)){
-            System.out.println("Product ne dobavlen");
+            System.out.println("Pokupatel ne dobavlena");
             return null;
         }else{ 
-            System.out.println("Dobavleno!");
-            return customer;
-        }
+            System.out.println("Dobavleno!"); 
+     return customer;
  }
-    
+ }    
     
 }

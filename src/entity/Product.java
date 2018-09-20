@@ -17,6 +17,7 @@ import javax.persistence.Id;
  */
 @Entity
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -105,10 +106,9 @@ public class Product {
 
     @Override
     public String toString() {
-        return   name + ", цена " + price+" центов" + ",  количество в магазине " + count +" штук";
+
+        return name + ", цена " + price + " центов" + ",  OSTATOK в магазине " + count + " штук";
+
     }
 
-    
-    
-    
 }

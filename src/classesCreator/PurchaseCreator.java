@@ -31,56 +31,61 @@ public class PurchaseCreator {//(Product product, Customer customer, int quantit
 
         System.out.println("----Список customers:-------------------------------------");
         for (int i = 0; i < customers.size(); i++) {
-           Customer cu = customers.get(i);
+            Customer cu = customers.get(i);
 
             System.out.println(i + 1 + ". " + cu.toString());
 
         }
-        
+
         System.out.println("---------Выберите код продукта и покупателя-------------");
-        
+
         System.out.println("Код покупателя: ");
         String codCustomer = scanner.nextLine();
         System.out.println("Код продукта: ");
         String codProduct = scanner.nextLine();
         System.out.println("Введите количество купленного товара");
-        String quantity= scanner.nextLine();
-        
-        
+        int quantity = scanner.nextInt();
+
         System.out.println("______________________________________________________________________________");
-        
-        
-        
+
         System.out.println("------------Список покупок------");
-        
-       System.out.println("------------Список покупок------");
-        
-        Purchase purchase=new Purchase();
+        Purchase purchase = new Purchase();
         Product product = new Product();
-        product = productes.get(new Integer(codProduct)-1);
+        product = productes.get(new Integer(codProduct) - 1);
+
         purchase.setProduct(product);
-        Customer customer=new Customer();
-        customer=customers.get(new Integer(codCustomer)-1);
+        Customer customer = new Customer();
+        customer = customers.get(new Integer(codCustomer) - 1);
         purchase.setCustomer(customer);
-        purchase.setQuantity(new Integer(quantity));
+        purchase.setQuantity(quantity);
+        if (product.getCount() - purchase.getQuantity() < 0) {
+            System.out.println("******************Nou product");
+            return null;
+        }
+        if (customer.getMoney() <= product.getPrice() * purchase.getQuantity()) {
+            System.out.println("**********************************Nou money");
+            return null;
+        }
         Calendar c = new GregorianCalendar();
         purchase.setDatebegin(c.getTime());
         //customer1.setMoney(customer1.getMoney()-purchase1.getProduct().getPrice()*purchase1.getQuantity());
-        purchase.getCustomer().setMoney(purchase.getCustomer().getMoney()-purchase.getProduct().getPrice()*purchase.getQuantity());
-        purchase.getProduct().setCount(purchase.getProduct().getCount()-purchase.getQuantity());
-        
+        purchase.getCustomer().setMoney(purchase.getCustomer().getMoney() - purchase.getProduct().getPrice() * purchase.getQuantity());
+
+        purchase.getProduct().setCount(purchase.getProduct().getCount() - purchase.getQuantity());
+
         // product1.setCount(product1.getCount()-purchase1.getQuantity());
-        System.out.println("Выдано: "+ purchase.toString());
-        System.out.println("________________________________________________________________________________" +"\n" );
-         
-         System.out.println("Dlja dobavlenia producta vvedite luboi simvol\ndlja ne dobavljat vvedite -1");
-        
-         String yes;
-        yes=scanner.next();
-        if ("-1".equals(yes)){
-            System.out.println("Product ne dobavlen");
+        System.out.println(purchase.toString());
+
+        System.out.println("________________________________________________________________________________" + "\n");
+
+        System.out.println("Dlja dobavlenia producta vvedite luboi simvol\n dlja ne dobavljat vvedite -1");
+
+        String yes;
+        yes = scanner.next();
+        if ("-1".equals(yes)) {
+            System.out.println("Pokupka ne dobavlena");
             return null;
-        }else{ 
+        } else {
             System.out.println("Dobavleno!");
             return purchase;
         }

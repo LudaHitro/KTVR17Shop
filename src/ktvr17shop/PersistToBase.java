@@ -17,33 +17,32 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 /**
+ * реализуем Retentive.
  *
  * @author pupil
  */
 public class PersistToBase implements Retentive {
 
-   
     private final EntityManager em;//em - entity manager= zapisano v BD, sohranenie v BD
     private final EntityTransaction tx;//trnsaction=zastsita peredaci dannih
 
-    public PersistToBase() { 
+    public PersistToBase() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("KTVRShop17PU");//PU persiste unit
         this.em = emf.createEntityManager();//emf-fabrika
         this.tx = em.getTransaction();
     }
-    
-     @Override
+
+    @Override
     public void freeResources() {
         if (em != null) {
             em.close();
         }
     }
 
-
     @Override
     public void saveProduct(Product product) {
         tx.begin();
-        em.persist(product);
+        em.persist(product);//создает новую запись в таблице,
         tx.commit();
 
     }
@@ -79,7 +78,7 @@ public class PersistToBase implements Retentive {
 
     @Override
     public List<Customer> loadCustomers() {
- try {
+        try {
             return em.createQuery("SELECT cu FROM Customer cu").getResultList();
         } catch (Exception e) {
             return new ArrayList<Customer>();
@@ -88,12 +87,11 @@ public class PersistToBase implements Retentive {
 
     @Override
     public List<Purchase> loadPurchases() {
- try {
+        try {
             return em.createQuery("SELECT pur FROM Purchase pur").getResultList();
         } catch (Exception e) {
             return new ArrayList<Purchase>();
         }
     }
 
-   
 }
